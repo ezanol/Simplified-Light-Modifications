@@ -45,7 +45,7 @@ body[dir=rtl] .sender {
 /* Loading Screen */
 
 body div#loading_screen {
-	position:absolute;
+	position: absolute;
 	top: 50%;
 	left: 50%;
 	margin-top: -11px;
@@ -96,7 +96,6 @@ a:hover {
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 16px;
 	z-index: 400;
 	opacity: 0; /* Set by JavaScript */
 	color: #FFFFFF;
@@ -108,10 +107,14 @@ a:hover {
 	background: -webkit-linear-gradient(top, #A2B0D0 0%, #7385AD 100%);
 	-webkit-transition: opacity 0.8s linear;
 	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+
 }
 
 #topic_bar:hover {
-	height: auto;
+	overflow: visible;
+	white-space: normal;
 }
 
 #topic_bar a,

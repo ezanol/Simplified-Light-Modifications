@@ -72,7 +72,9 @@ function replaceEmoji(lineNumber) {
 			":*": "😚",
 			":**": "😘",
 			":***": "😘",
-			"*_*": "😍"
+			"*_*": "😍",
+			":/": "😕",
+			"😕/": "://"
 		},
 		line = document.querySelector("#line" + lineNumber + " .message");
 

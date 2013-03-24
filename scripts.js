@@ -41,6 +41,7 @@ function replaceEmoji(lineNumber) {
 			":(": "😞",
 			"n_n": "😄",
 			"u_u": "😔",
+			"^_^'": "😅",
 			"^_^": "😄",
 			"^.^": "😊",
 			"x.x": "😵",
@@ -51,16 +52,15 @@ function replaceEmoji(lineNumber) {
 			"x_X": "😲",
 			"X_x": "😲",
 			"X_X": "😲",
+			"DD:": "😫",
 			"D:": "😧",
 			":s": "😖",
 			":S": "😖",
-			"DD:": "😫",
 			"._.'": "😰",
 			"._.": "😞",
 			";_;": "😢",
 			";__;": "😢",
 			"D;": "😰",
-			"^_^'": "😅",
 			"^.^": "😅",
 			"T_T": "😭",
 			"T.T": "😭",
@@ -69,9 +69,9 @@ function replaceEmoji(lineNumber) {
 			":O": "😱",
 			":0": "😱",
 			"-_-": "😑",
-			":*": "😚",
-			":**": "😘",
 			":***": "😘",
+			":**": "😘",
+			":*": "😚",
 			"*_*": "😍",
 			":/": "😕",
 			"😕/": "://"
@@ -79,11 +79,15 @@ function replaceEmoji(lineNumber) {
 		line = document.querySelector("#line" + lineNumber + " .message");
 
 	if (line) {
-		for (var i in emoji) {
-			while (line.innerHTML.indexOf(i) != -1) {
-				line.innerHTML = line.innerHTML.replace(i, emoji[i]);
+		[].forEach.call(line.childNodes, function(element) {
+			if (element.nodeName == "#text") {
+				for (var i in emoji) {
+					while (element.textContent.indexOf(i) != -1) {
+						element.textContent = element.textContent.replace(i, emoji[i]);
+					}
+				}
 			}
-		}
+		});
 
 		return true;
 	}

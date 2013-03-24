@@ -76,11 +76,11 @@ function replaceEmoji(lineNumber) {
 			":/": "😕",
 			"😕/": "://"
 		},
-		line = document.querySelector("#line" + lineNumber + " .message");
+		line = document.querySelector("#line" + lineNumber + "[type=privmsg] .message");
 
 	if (line) {
 		[].forEach.call(line.childNodes, function(element) {
-			if (element.nodeName == "#text") {
+			if (element.nodeName == "#text" || element.className == "effect") {
 				for (var i in emoji) {
 					while (element.textContent.indexOf(i) != -1) {
 						element.textContent = element.textContent.replace(i, emoji[i]);

@@ -76,8 +76,13 @@ function replaceEmoji(lineNumber) {
 			":/": "😕",
 			"😕/": "://"
 		},
-		line = document.querySelector("#line" + lineNumber + "[type=privmsg] .message");
 
+	line = document.querySelector("#line" + lineNumber + "[type=privmsg] .message");
+
+	if (line == undefined) {
+		line = document.querySelector("#line-" + lineNumber + "[type=privmsg] .message");
+	}
+	
 	if (line) {
 		[].forEach.call(line.childNodes, function(element) {
 			if (element.nodeName == "#text" || element.className == "effect") {
